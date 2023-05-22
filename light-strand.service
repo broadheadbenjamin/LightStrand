@@ -1,0 +1,14 @@
+[Unit]
+Description=Run script to control light strand.
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=python3 /home/pi/LightStrand/LightStrand.py
+ExecStop=sh /home/pi/LightStrand/StopStrand.sh
+
+[Install]
+WantedBy=multi-user.target
