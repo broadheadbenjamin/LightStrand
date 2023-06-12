@@ -1,0 +1,5 @@
+# Colors            (Green, Red, Blue)
+GREEN               = (255, 0, 0)
+RED                 = (0, 255, 0)
+BLUE                = (0, 0, 255)
+WHITE               = (255, 255, 255)

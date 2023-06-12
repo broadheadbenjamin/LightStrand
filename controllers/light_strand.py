@@ -16,7 +16,7 @@ def main():
     # Loop indefinitely
     while True:
         # Update the sun schedule.
-        currentTime = datetime.now(timezone.utc) - timedelta(hours = 6) 
+        currentTime = datetime.now(timezone.utc) - timedelta(hours = 6)
         city        = lookup("Salt Lake City", database())
         sunToday    = sun(city.observer, date=datetime.now())
         sunrise     = sunToday["sunrise"] - timedelta(hours = 6)
@@ -26,11 +26,11 @@ def main():
         if currentTime < sunrise or currentTime > sunset:
             if lastLightState != "on":
                 lastLightState = "on"
-                os.system('/usr/bin/python3 /home/pi/LightStrand/UpdateLights.py on')
+                os.system('/usr/bin/python3 /home/pi/LightStrand/update_lights.py on')
         else:
             if lastLightState != "off":
                 lastLightState = "off"
-                os.system('/usr/bin/python3 /home/pi/LightStrand/UpdateLights.py off')
+                os.system('/usr/bin/python3 /home/pi/LightStrand/update_lights.py off')
 
         # Only execute the loop once a minute.
         sleep(60)
